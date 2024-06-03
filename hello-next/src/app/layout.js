@@ -1,5 +1,8 @@
+// yaha par hum kya karenge suspense kon karenge import
+import { Suspense } from "react";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Loading from "./Loading";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,7 +14,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body>
+        {/* yaha par hum kya karenge kii suspense ka use karke load karwa sakte hai page kon */}
+        <Suspense fallback={<Loading />}>{children}</Suspense>
+      </body>
     </html>
   );
 }
